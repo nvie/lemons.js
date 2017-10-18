@@ -1,6 +1,6 @@
 // @flow
 
-import LazyResult, { Initial, Loading, Failure, Success } from '../LazyResult';
+import LazyResult, { Failure, Initial, Loading, Success } from '../LazyResult';
 
 describe('LazyResult', () => {
     const r1 = LazyResult.initial();

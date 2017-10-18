@@ -1,6 +1,6 @@
 // @flow
 
-import Result, { Ok, Err } from '../Result';
+import Result, { Err, Ok } from '../Result';
 
 describe('Result', () => {
     const r1 = Result.ok(42);
