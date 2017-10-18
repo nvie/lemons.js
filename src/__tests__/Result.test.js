@@ -66,7 +66,7 @@ describe('Result', () => {
         expect(r4.toMaybe().isNothing()).toBe(true);
     });
 
-    it('get', () => {
+    it('value', () => {
         expect(r1.value()).toBe(42);
         expect(r2.value()).toBe("I'm a string");
         expect(r3.value()).toBeUndefined();

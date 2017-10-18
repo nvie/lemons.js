@@ -65,6 +65,11 @@ export default class Maybe<T> {
         return m.type === Just ? m.value : defaultValue;
     }
 
+    value(): void | T {
+        const m = this._m;
+        return m.type === Just ? m.value : undefined;
+    }
+
     /**
      * Unwrap the value from this Maybe instance if this is a "Just" result.
      * Otherwise, will throw a runtime exception.

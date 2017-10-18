@@ -51,4 +51,10 @@ describe('Maybe', () => {
         expect(m2.withDefault('foo')).toBe('a string');
         expect(m3.withDefault('foo')).toBe('foo');
     });
+
+    it('value', () => {
+        expect(m1.value()).toBe(42);
+        expect(m2.value()).toBe('a string');
+        expect(m3.value()).toBeUndefined();
+    });
 });
