@@ -72,4 +72,17 @@ describe('Result', () => {
         expect(r3.value()).toBeUndefined();
         expect(r4.value()).toBeUndefined();
     });
+
+    it('andThen', () => {
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
+            // prettier-ignore
+            r.andThen(
+                n => typeof n === 'number' ? Result.ok(n * 2) : Result.err('not a number')
+            )
+        );
+        expect(v1.value()).toBe(84);
+        expect(v2.isErr()).toBe(true);
+        expect(v3.isErr()).toBe(true);
+        expect(v4.isErr()).toBe(true);
+    });
 });

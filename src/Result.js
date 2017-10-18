@@ -94,6 +94,14 @@ export default class Result<E, T> {
         const r = this._r;
         return r.type === Ok ? okCallback(r.value) : errCallback(r.error);
     }
+
+    /**
+     * Chain together a sequence of computations that may fail.
+     */
+    andThen<V>(callback: T => Result<E, V>): Result<E, V> {
+        const r = this._r;
+        return r.type === Ok ? callback(r.value) : Result.err(r.error);
+    }
 }
 
 const _Ok = <E, T>(value: T): Result<E, T> => Result.ok(value);
