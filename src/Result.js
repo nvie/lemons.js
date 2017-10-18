@@ -55,23 +55,23 @@ export default class Result<E, T> {
         return this._r.type === Err;
     }
 
-    withDefault(defaultValue: T): T {
-        const r = this._r;
-        if (r.type === Ok) {
-            return r.value;
-        } else {
-            return defaultValue;
-        }
-    }
+    // withDefault(defaultValue: T): T {
+    //     const r = this._r;
+    //     if (r.type === Ok) {
+    //         return r.value;
+    //     } else {
+    //         return defaultValue;
+    //     }
+    // }
 
-    toMaybe(): void | T {
-        const r = this._r;
-        if (r.type === Ok) {
-            return r.value;
-        } else {
-            return undefined;
-        }
-    }
+    // toMaybe(): void | T {
+    //     const r = this._r;
+    //     if (r.type === Ok) {
+    //         return r.value;
+    //     } else {
+    //         return undefined;
+    //     }
+    // }
 
     /**
      * Unwrap the value from this Result instance if this is an "Ok" result.
