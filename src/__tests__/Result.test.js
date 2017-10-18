@@ -8,7 +8,7 @@ describe('Result', () => {
     const r3 = Result.err(new Error('Proper JS error'));
     const r4 = Result.err('Error as a simple string value');
 
-    it('result inspection', () => {
+    it('inspection', () => {
         expect(r1.isOk()).toBe(true);
         expect(r1.isErr()).toBe(false);
         expect(r2.isOk()).toBe(true);
@@ -19,7 +19,7 @@ describe('Result', () => {
         expect(r4.isErr()).toBe(true);
     });
 
-    it('result dispatching', () => {
+    it('dispatching', () => {
         const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
             // prettier-ignore
             r.dispatch(
@@ -33,10 +33,17 @@ describe('Result', () => {
         expect(v4).toBe("I'm an error");
     });
 
-    it('result unwrapping', () => {
+    it('unwrapping', () => {
         expect(r1.unwrap()).toBe(42);
         expect(r2.unwrap()).toBe("I'm a string");
         expect(() => r3.unwrap()).toThrow('Proper JS error');
         expect(() => r4.unwrap()).toThrow('Error as a simple string value');
+    });
+
+    it('withDefault', () => {
+        expect(r1.withDefault('foo')).toBe(42);
+        expect(r2.withDefault('foo')).toBe("I'm a string");
+        expect(r3.withDefault('foo')).toBe('foo');
+        expect(r4.withDefault('foo')).toBe('foo');
     });
 });
