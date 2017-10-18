@@ -3,3 +3,5 @@
 [![Coverage Status](https://img.shields.io/coveralls/nvie/lemons.js/master.svg)](https://coveralls.io/github/nvie/lemons.js?branch=master)
 
 Common algebraïc data types for JavaScript.
+
+## Docs will come soon
