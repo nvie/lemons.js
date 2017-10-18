@@ -1,6 +1,6 @@
 // @flow
 
-import Result from '../Result';
+import Result, { Ok, Err } from '../Result';
 
 describe('Result', () => {
     const r1 = Result.ok(42);
@@ -26,12 +26,17 @@ describe('Result', () => {
         expect(r4.isErr()).toBe(true);
     });
 
+    it('convenience constructors', () => {
+        expect(Ok(42).isOk()).toBe(true);
+        expect(Err('oops').isErr()).toBe(true);
+    });
+
     it('dispatching', () => {
         const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
             // prettier-ignore
             r.dispatch(
-                () => "I'm an error",
                 () => "I'm a success",
+                () => "I'm an error",
             )
         );
         expect(v1).toBe("I'm a success");

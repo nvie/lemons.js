@@ -83,3 +83,12 @@ export default class Maybe<T> {
         return m.type === Just ? justCallback(m.value) : nothingCallback();
     }
 }
+
+const _Just = <T>(value: T): Maybe<T> => Maybe.just(value);
+const _Nothing = <T>(): Maybe<T> => Maybe.nothing();
+
+// prettier-ignore
+export {
+    _Just as Just,
+    _Nothing as Nothing,
+};

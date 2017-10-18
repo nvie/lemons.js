@@ -1,6 +1,6 @@
 // @flow
 
-import Maybe from '../Maybe';
+import Maybe, { Just, Nothing } from '../Maybe';
 
 describe('Maybe', () => {
     const m1 = Maybe.just(42);
@@ -20,6 +20,11 @@ describe('Maybe', () => {
         expect(m2.isNothing()).toBe(false);
         expect(m3.isJust()).toBe(false);
         expect(m3.isNothing()).toBe(true);
+    });
+
+    it('convenience constructors', () => {
+        expect(Just(42).isJust()).toBe(true);
+        expect(Nothing().isNothing()).toBe(true);
     });
 
     it('dispatching', () => {

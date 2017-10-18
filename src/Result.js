@@ -13,8 +13,8 @@ const Err = 'Err';
 
 // prettier-ignore
 opaque type $ResultT<E, T> =
-    | { type: typeof Err, error: E }
-    | { type: typeof Ok, value: T };
+    | { type: typeof Ok, value: T }
+    | { type: typeof Err, error: E };
 
 /**
  * Represents a union type that's either a legit value or an error:
@@ -90,8 +90,17 @@ export default class Result<E, T> {
         }
     }
 
-    dispatch<O>(errCallback: E => O, okCallback: T => O): O {
+    dispatch<O>(okCallback: T => O, errCallback: E => O): O {
         const r = this._r;
         return r.type === Ok ? okCallback(r.value) : errCallback(r.error);
     }
 }
+
+const _Ok = <E, T>(value: T): Result<E, T> => Result.ok(value);
+const _Err = <E, T>(error: E): Result<E, T> => Result.err(error);
+
+// prettier-ignore
+export {
+    _Ok as Ok,
+    _Err as Err,
+};
