@@ -32,4 +32,11 @@ describe('Result', () => {
         expect(v3).toBe("I'm an error");
         expect(v4).toBe("I'm an error");
     });
+
+    it('result unwrapping', () => {
+        expect(r1.unwrap()).toBe(42);
+        expect(r2.unwrap()).toBe("I'm a string");
+        expect(() => r3.unwrap()).toThrow('Proper JS error');
+        expect(() => r4.unwrap()).toThrow('Error as a simple string value');
+    });
 });
