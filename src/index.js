@@ -1,4 +1,5 @@
 // @flow
 
-import type { ResultT } from './Result';
-import * as Result from './Result';
+import Result from './Result';
+
+export { Result };
