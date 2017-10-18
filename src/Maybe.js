@@ -1,0 +1,85 @@
+// @flow
+
+/**
+ * Maybe value
+ *     = Just value
+ *     | Nothing
+ */
+
+const Just = 'Just';
+const Nothing = 'Nothing';
+
+// prettier-ignore
+opaque type $MaybeT<T> =
+    | { type: typeof Just, value: T }
+    | { type: typeof Nothing };
+
+/**
+ * Represents a union type that's either a legit value or an error:
+ *
+ *     Maybe value
+ *         = Just value
+ *         | Nothing
+ *
+ */
+export default class Maybe<T> {
+    _m: $MaybeT<T>;
+
+    /**
+     * **Do not call this constructor directly!**  Use either `Maybe.just()` or
+     * `Maybe.nothing()` to construct a new Maybe instance.
+     */
+    constructor(m: $MaybeT<T>) {
+        this._m = m;
+    }
+
+    /**
+     * Create a new Maybe instance representing a value.
+     */
+    static just(value: T): Maybe<T> {
+        return new Maybe({ type: Just, value });
+    }
+
+    /**
+     * Create a new Maybe instance representing no value.
+     */
+    static nothing(): Maybe<T> {
+        return new Maybe({ type: Nothing });
+    }
+
+    isJust(): boolean {
+        return this._m.type === Just;
+    }
+
+    isNothing(): boolean {
+        return this._m.type === Nothing;
+    }
+
+    toString() {
+        const m = this._m;
+        return m.type === Just ? `Just ${(m.value: any)}` : 'Nothing';
+    }
+
+    withDefault(defaultValue: T): T {
+        const m = this._m;
+        return m.type === Just ? m.value : defaultValue;
+    }
+
+    /**
+     * Unwrap the value from this Maybe instance if this is a "Just" result.
+     * Otherwise, will throw a runtime exception.
+     */
+    unwrap(): T {
+        const m = this._m;
+        if (m.type === Just) {
+            return m.value;
+        } else {
+            throw new Error('Cannot unwrap a Nothing');
+        }
+    }
+
+    dispatch<O>(justCallback: T => O, nothingCallback: () => O): O {
+        const m = this._m;
+        return m.type === Just ? justCallback(m.value) : nothingCallback();
+    }
+}

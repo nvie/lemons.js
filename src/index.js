@@ -1,5 +1,6 @@
 // @flow
 
+import Maybe from './Maybe';
 import Result from './Result';
 
-export { Result };
+export { Maybe, Result };
