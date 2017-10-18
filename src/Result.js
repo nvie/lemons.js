@@ -1,5 +1,7 @@
 // @flow
 
+import Maybe from './Maybe';
+
 /**
  * Result error value
  *     = Ok value
@@ -47,6 +49,11 @@ export default class Result<E, T> {
         return new Result({ type: Err, error });
     }
 
+    toString() {
+        const r = this._r;
+        return r.type === Ok ? `Ok(${(r.value: any)})` : `Err(${(r.error: any)})`;
+    }
+
     isOk(): boolean {
         return this._r.type === Ok;
     }
@@ -60,7 +67,12 @@ export default class Result<E, T> {
         return r.type === Ok ? r.value : defaultValue;
     }
 
-    toMaybe(): void | T {
+    toMaybe(): Maybe<T> {
+        const r = this._r;
+        return r.type === Ok ? Maybe.just(r.value) : Maybe.nothing();
+    }
+
+    value(): void | T {
         const r = this._r;
         return r.type === Ok ? r.value : undefined;
     }

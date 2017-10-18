@@ -6,7 +6,14 @@ describe('Result', () => {
     const r1 = Result.ok(42);
     const r2 = Result.ok("I'm a string");
     const r3 = Result.err(new Error('Proper JS error'));
-    const r4 = Result.err('Error as a simple string value');
+    const r4 = Result.err('a reason');
+
+    it('toString', () => {
+        expect(r1.toString()).toBe('Ok(42)');
+        expect(r2.toString()).toBe("Ok(I'm a string)");
+        expect(r3.toString()).toBe('Err(Error: Proper JS error)');
+        expect(r4.toString()).toBe('Err(a reason)');
+    });
 
     it('inspection', () => {
         expect(r1.isOk()).toBe(true);
@@ -37,7 +44,7 @@ describe('Result', () => {
         expect(r1.unwrap()).toBe(42);
         expect(r2.unwrap()).toBe("I'm a string");
         expect(() => r3.unwrap()).toThrow('Proper JS error');
-        expect(() => r4.unwrap()).toThrow('Error as a simple string value');
+        expect(() => r4.unwrap()).toThrow('a reason');
     });
 
     it('withDefault', () => {
@@ -48,9 +55,16 @@ describe('Result', () => {
     });
 
     it('toMaybe', () => {
-        expect(r1.toMaybe()).toBe(42);
-        expect(r2.toMaybe()).toBe("I'm a string");
-        expect(r3.toMaybe()).toBeUndefined();
-        expect(r4.toMaybe()).toBeUndefined();
+        expect(r1.toMaybe().isJust()).toBe(true);
+        expect(r2.toMaybe().isJust()).toBe(true);
+        expect(r3.toMaybe().isNothing()).toBe(true);
+        expect(r4.toMaybe().isNothing()).toBe(true);
+    });
+
+    it('get', () => {
+        expect(r1.value()).toBe(42);
+        expect(r2.value()).toBe("I'm a string");
+        expect(r3.value()).toBeUndefined();
+        expect(r4.value()).toBeUndefined();
     });
 });

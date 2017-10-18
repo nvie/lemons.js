@@ -7,6 +7,12 @@ describe('Maybe', () => {
     const m2 = Maybe.just('a string');
     const m3 = Maybe.nothing();
 
+    it('toString', () => {
+        expect(m1.toString()).toBe('Just(42)');
+        expect(m2.toString()).toBe('Just(a string)');
+        expect(m3.toString()).toBe('Nothing');
+    });
+
     it('inspection', () => {
         expect(m1.isJust()).toBe(true);
         expect(m1.isNothing()).toBe(false);
@@ -39,11 +45,5 @@ describe('Maybe', () => {
         expect(m1.withDefault('foo')).toBe(42);
         expect(m2.withDefault('foo')).toBe('a string');
         expect(m3.withDefault('foo')).toBe('foo');
-    });
-
-    it('toString', () => {
-        expect(m1.toString()).toBe('Just 42');
-        expect(m2.toString()).toBe('Just a string');
-        expect(m3.toString()).toBe('Nothing');
     });
 });

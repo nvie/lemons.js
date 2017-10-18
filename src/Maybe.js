@@ -47,17 +47,17 @@ export default class Maybe<T> {
         return new Maybe({ type: Nothing });
     }
 
+    toString() {
+        const m = this._m;
+        return m.type === Just ? `Just(${(m.value: any)})` : 'Nothing';
+    }
+
     isJust(): boolean {
         return this._m.type === Just;
     }
 
     isNothing(): boolean {
         return this._m.type === Nothing;
-    }
-
-    toString() {
-        const m = this._m;
-        return m.type === Just ? `Just ${(m.value: any)}` : 'Nothing';
     }
 
     withDefault(defaultValue: T): T {
