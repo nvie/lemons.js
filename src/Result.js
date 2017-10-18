@@ -57,21 +57,13 @@ export default class Result<E, T> {
 
     withDefault(defaultValue: T): T {
         const r = this._r;
-        if (r.type === Ok) {
-            return r.value;
-        } else {
-            return defaultValue;
-        }
+        return r.type === Ok ? r.value : defaultValue;
     }
 
-    // toMaybe(): void | T {
-    //     const r = this._r;
-    //     if (r.type === Ok) {
-    //         return r.value;
-    //     } else {
-    //         return undefined;
-    //     }
-    // }
+    toMaybe(): void | T {
+        const r = this._r;
+        return r.type === Ok ? r.value : undefined;
+    }
 
     /**
      * Unwrap the value from this Result instance if this is an "Ok" result.

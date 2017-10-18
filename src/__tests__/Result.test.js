@@ -46,4 +46,11 @@ describe('Result', () => {
         expect(r3.withDefault('foo')).toBe('foo');
         expect(r4.withDefault('foo')).toBe('foo');
     });
+
+    it('toMaybe', () => {
+        expect(r1.toMaybe()).toBe(42);
+        expect(r2.toMaybe()).toBe("I'm a string");
+        expect(r3.toMaybe()).toBeUndefined();
+        expect(r4.toMaybe()).toBeUndefined();
+    });
 });
