@@ -10,7 +10,7 @@ const Ok = 'Ok';
 const Err = 'Err';
 
 // prettier-ignore
-opaque type _ResultT<E, T> =
+opaque type $ResultT<E, T> =
     | { type: typeof Err, error: E }
     | { type: typeof Ok, value: T };
 
@@ -23,13 +23,13 @@ opaque type _ResultT<E, T> =
  *
  */
 export default class Result<E, T> {
-    _r: _ResultT<E, T>;
+    _r: $ResultT<E, T>;
 
     /**
      * **Do not call this constructor directly!**  Use either `Result.ok()` or
      * `Result.err()` to construct a new Result instance.
      */
-    constructor(r: _ResultT<E, T>) {
+    constructor(r: $ResultT<E, T>) {
         this._r = r;
     }
 
