@@ -1,5 +1,5 @@
 {
-  "name": "common-adt",
+  "name": "lemons",
   "version": "0.0.1",
   "description": "Common algebraïc data types for JavaScript",
   "main": "lib/index.js",
