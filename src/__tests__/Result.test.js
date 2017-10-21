@@ -45,6 +45,18 @@ describe('Result', () => {
         expect(v4).toBe("I'm an error");
     });
 
+    it('map', () => {
+        expect(r1.map(x => x.toString()).value()).toBe('42');
+        expect(r4.map(x => x.length).value()).toBeUndefined();
+    });
+
+    it('mapError', () => {
+        expect(r1.mapError(_ => 'whoopsy').unwrap()).toBe(42);
+        expect(r2.mapError(_ => 'whoopsy').unwrap()).toBe("I'm a string");
+        expect(() => r3.mapError(_ => 'whoopsy').unwrap()).toThrow('whoopsy');
+        expect(() => r4.mapError(_ => 'whoopsy').unwrap()).toThrow('whoopsy');
+    });
+
     it('unwrapping', () => {
         expect(r1.unwrap()).toBe(42);
         expect(r2.unwrap()).toBe("I'm a string");
