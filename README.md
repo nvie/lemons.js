@@ -4,7 +4,15 @@
 
 🍋 Common algebraïc data types for JavaScript, 'cause when life hands you lemons...
 
-## `Result<d, e> = Err<e> | Ok<d>`
+## Result
+
+Pseudo-type:
+
+    type Result<E, T> =
+        | Ok T
+        | Err E
+
+Usage example:
 
 ```javascript
 import { Result, Ok, Err } from 'lemons';
@@ -23,12 +31,22 @@ r2.unwrap()         // throws 'Oops'
 ```
 
 
-## `LazyResult<d, e> = Initial | Loading | Failure<e> | Success<d>`
+## LazyResult
+
+Pseudo-type:
+
+    type LazyResult<E, T> =
+        | Initial
+        | Loading
+        | Failure E
+        | Success T
 
 Useful for state management that typically has an initial, loading, and
 a failure/success outcome state, like page loading, or submitting a form.  The
 following example shows how you would use the LazyResult as part of a React
 app, but since ADTs are simple data structures, they work with any technology.
+
+Usage example:
 
 ```jsx
 import { LazyResult, Initial, Loading, Failure, Success } from 'lemons';
