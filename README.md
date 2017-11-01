@@ -46,54 +46,6 @@ a failure/success outcome state, like page loading, or submitting a form.  The
 following example shows how you would use the LazyResult as part of a React
 app, but since ADTs are simple data structures, they work with any technology.
 
-Usage example:
+Annotated usage example:
 
-```jsx
-import { LazyResult, Initial, Loading, Failure, Success } from 'lemons';
-import React from 'react';
-
-// The page's success value is a list of todo items.  The page's failure value
-// is any error we got when loading.
-type Props = {};
-type State = {
-    items: LazyResult<Error, Array<TodoItem>>,
-};
-
-class TodoList extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            items: Initial(),
-        }
-    }
-
-    async componentDidMount() {
-        this.setState({ items: Loading() });
-        try {
-            const data = await TodosAPI.getAll();
-            this.setState({ items: Success(data) });
-        } catch (e) {
-            this.setState({ items: Failure(e) });
-        }
-    }
-
-    render() {
-        // How this component is rendered depends on the state it's in
-        return this.state.items.dispatch(
-            () => <div />,      // Blank page when loading hasn't started yet
-            () => <Spinner />,  // Show a spinning animation when data is loaded
-            err => (
-                <div style={{ color: 'red' }}>
-                    {err}
-                </div>
-            ),
-            items => (
-                <ul>
-                    {items.map(item => <li key={item.key}>{item.title}</li>)}
-                </ul>
-            )
-        );
-    }
-}
-```
+![How to use LazyResult in real apps](./lazyresult-example-usage.png)
