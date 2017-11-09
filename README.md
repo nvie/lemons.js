@@ -1,6 +1,7 @@
 [![npm](https://img.shields.io/npm/v/lemons.svg)](https://www.npmjs.com/package/lemons)
 [![Build Status](https://img.shields.io/travis/nvie/lemons.js/master.svg)](https://travis-ci.org/nvie/lemons.js)
 [![Coverage Status](https://img.shields.io/coveralls/nvie/lemons.js/master.svg)](https://coveralls.io/github/nvie/lemons.js?branch=master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnvie%2Flemons.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnvie%2Flemons.js?ref=badge_shield)
 
 🍋 Common algebraïc data types for JavaScript, 'cause when life hands you lemons...
 
@@ -49,3 +50,7 @@ app, but since ADTs are simple data structures, they work with any technology.
 Annotated usage example:
 
 ![How to use LazyResult in real apps](./lazyresult-example-usage.png)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnvie%2Flemons.js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnvie%2Flemons.js?ref=badge_large)
