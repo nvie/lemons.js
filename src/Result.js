@@ -77,6 +77,11 @@ export default class Result<E, T> {
         return r.type === Ok ? r.value : undefined;
     }
 
+    errValue(): void | E {
+        const r = this._r;
+        return r.type === Err ? r.error : undefined;
+    }
+
     /**
      * Unwrap the value from this Result instance if this is an "Ok" result.
      * Otherwise, will throw the "Err" error via a runtime exception.

@@ -85,6 +85,13 @@ describe('Result', () => {
         expect(r4.value()).toBeUndefined();
     });
 
+    it('errValue', () => {
+        expect(r1.errValue()).toBeUndefined();
+        expect(r2.errValue()).toBeUndefined();
+        expect(r3.errValue()).toEqual(new Error('Proper JS error'));
+        expect(r4.errValue()).toEqual('a reason');
+    });
+
     it('andThen', () => {
         const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
             // prettier-ignore
