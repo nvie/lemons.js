@@ -34,6 +34,7 @@
     "url": "https://github.com/nvie/lemons.js/issues"
   },
   "homepage": "https://github.com/nvie/lemons.js#readme",
+  "sideEffects": false,
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
