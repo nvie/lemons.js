@@ -20,6 +20,8 @@ opaque type $LazyResultT<E, T> =
     | { type: typeof Failure, error: E }
     | { type: typeof Success, result: T };
 
+const nothing = () => undefined;
+
 /**
  * Represents a union type that's in either one of these four stages: Initial,
  * Loading, Failure, or Success.
@@ -118,6 +120,10 @@ export default class LazyResult<E, T> {
         } else {
             return successCallback(r.result);
         }
+    }
+
+    value(): T | void {
+        return this.dispatch(nothing, nothing, nothing, x => x);
     }
 }
 
