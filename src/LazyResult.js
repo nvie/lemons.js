@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 /**
  * LazyResult error result
@@ -82,9 +82,9 @@ export default class LazyResult<E, T> {
         } else if (r.type === Loading) {
             return 'Loading';
         } else if (r.type === Failure) {
-            return `Failure(${(r.error: any)})`;
+            return `Failure(${String(r.error)})`;
         } else {
-            return `Success(${(r.result: any)})`;
+            return `Success(${String(r.result)})`;
         }
     }
 

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import Maybe from './Maybe';
 
@@ -51,7 +51,7 @@ export default class Result<E, T> {
 
     toString() {
         const r = this._r;
-        return r.type === Ok ? `Ok(${(r.value: any)})` : `Err(${(r.error: any)})`;
+        return r.type === Ok ? `Ok(${String(r.value)})` : `Err(${String(r.error)})`;
     }
 
     isOk(): boolean {

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import LazyResult, { Failure, Initial, Loading, Success } from './LazyResult';
 import Maybe, { Just, Nothing } from './Maybe';

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import Maybe, { Just, Nothing } from '../Maybe';
 

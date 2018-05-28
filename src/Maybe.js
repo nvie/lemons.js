@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 /**
  * Maybe value
@@ -49,7 +49,7 @@ export default class Maybe<T> {
 
     toString() {
         const m = this._m;
-        return m.type === Just ? `Just(${(m.value: any)})` : 'Nothing';
+        return m.type === Just ? `Just(${String(m.value)})` : 'Nothing';
     }
 
     isJust(): boolean {

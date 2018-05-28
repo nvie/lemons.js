@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import Result, { Err, Ok } from '../Result';
 
