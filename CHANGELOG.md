@@ -1,3 +1,8 @@
+v1.1.1
+------
+- Make lemons.js fully [Flow Strict](https://flow.org/en/docs/strict/)
+
+
 v1.1.0
 ------
 - Add convenience `LazyResult.value()`
