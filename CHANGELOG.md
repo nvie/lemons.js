@@ -1,3 +1,8 @@
+v1.2.0
+------
+- Drop support for Node 7
+
+
 v1.1.1
 ------
 - Make lemons.js fully [Flow Strict](https://flow.org/en/docs/strict/)
