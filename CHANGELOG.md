@@ -1,3 +1,8 @@
+v1.3.0
+------
+- Add TypeScript support
+
+
 v1.2.0
 ------
 - Drop support for Node 7
