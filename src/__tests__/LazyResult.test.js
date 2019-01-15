@@ -67,4 +67,11 @@ describe('LazyResult', () => {
         expect(v3).toBe(undefined);
         expect(v4).toBe('awesome');
     });
+
+    it('unwrap', () => {
+        expect(r1.unwrap()).toBe(undefined);
+        expect(r2.unwrap()).toBe(undefined);
+        expect(() => r3.unwrap()).toThrow('oops');
+        expect(r4.unwrap()).toBe('awesome');
+    });
 });
