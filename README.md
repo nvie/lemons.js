@@ -16,7 +16,8 @@ Pseudo-type:
 Usage example:
 
 ```javascript
-import { Result, Ok, Err } from 'lemons';
+import Result, { Ok, Err } from 'lemons/Result';
+// or: import { Result, Ok, Err } from 'lemons';
 
 const r1: Result<string, number> = Ok(42);
 r1.isOk()           // => true
