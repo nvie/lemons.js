@@ -1,3 +1,22 @@
+v1.4.0
+------
+- You can now directly import submodules of this package, for example:
+  
+      // Previously
+      import { Result, Ok, Err } from 'lemons';
+
+      // Now possible
+      import Result, { Ok, Err } from 'lemons/Result';
+      //                               ^^^^^^^^^^^^^
+  
+  Note that, when importing from the specific modules directly, you'll need to
+  make the main class (in this case `Result`) a _default_ import instead of
+  a named import.
+
+- New build process
+- Cleaner/smaller package output
+
+
 v1.3.1
 ------
 - Add TypeScript support
