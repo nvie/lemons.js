@@ -1,6 +1,6 @@
 {
   "name": "lemons",
-  "version": "1.4.0-wip",
+  "version": "1.4.0",
   "description": "Common algebraïc data types for JavaScript",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
