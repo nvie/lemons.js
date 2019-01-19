@@ -71,13 +71,6 @@ describe('Result', () => {
         expect(r4.withDefault('foo')).toBe('foo');
     });
 
-    it('toMaybe', () => {
-        expect(r1.toMaybe().isJust()).toBe(true);
-        expect(r2.toMaybe().isJust()).toBe(true);
-        expect(r3.toMaybe().isNothing()).toBe(true);
-        expect(r4.toMaybe().isNothing()).toBe(true);
-    });
-
     it('value', () => {
         expect(r1.value()).toBe(42);
         expect(r2.value()).toBe("I'm a string");

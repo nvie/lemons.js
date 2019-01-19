@@ -1,7 +1,5 @@
 // @flow strict
 
-import Maybe from './Maybe';
-
 /**
  * Result error value
  *     = Ok value
@@ -65,11 +63,6 @@ export default class Result<E, T> {
     withDefault(defaultValue: T): T {
         const r = this._r;
         return r.type === Ok ? r.value : defaultValue;
-    }
-
-    toMaybe(): Maybe<T> {
-        const r = this._r;
-        return r.type === Ok ? Maybe.just(r.value) : Maybe.nothing();
     }
 
     value(): void | T {

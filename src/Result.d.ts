@@ -1,5 +1,3 @@
-import Maybe from './Maybe';
-
 export default class Result<E, T> {
   ok(value: T): Result<E, T>;
   err(error: E): Result<E, T>;
@@ -8,7 +6,6 @@ export default class Result<E, T> {
   isOk(): boolean;
   isErr(): boolean;
   withDefault(defaultValue: T): T;
-  toMaybe(): Maybe<T>;
   value(): undefined | T;
   errValue(): undefined | E;
   unwrap(): T;
