@@ -1,20 +1,29 @@
 v1.4.0
 ------
-- You can now directly import submodules of this package, for example:
-  
-      // Previously
-      import { Result, Ok, Err } from 'lemons';
+* **Breaking changes:**
 
-      // Now possible
-      import Result, { Ok, Err } from 'lemons/Result';
-      //                               ^^^^^^^^^^^^^
-  
-  Note that, when importing from the specific modules directly, you'll need to
-  make the main class (in this case `Result`) a _default_ import instead of
-  a named import.
+  - Removed `Result.toMaybe()` - this method wasn’t commonly used, but pulled
+    in `Maybe` into compiled bundles, increasing its size.
 
-- New build process
-- Cleaner/smaller package output
+* **New features:**
+
+  - You can now directly import submodules of this package, for example:
+    
+        // Previously
+        import { Result, Ok, Err } from 'lemons';
+
+        // Now possible
+        import Result, { Ok, Err } from 'lemons/Result';
+        //                               ^^^^^^^^^^^^^
+    
+    Note that, when importing from the specific modules directly, you'll need to
+    make the main class (in this case `Result`) a _default_ import instead of
+    a named import.
+
+* **Misc:**
+
+  - New build process
+  - Cleaner/smaller package output
 
 
 v1.3.1
