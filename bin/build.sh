@@ -30,9 +30,16 @@ copy_metadata() {
 }
 
 build_package_json() {
-    cat package.json                                           | \
-        jq 'del(.devDependencies,.scripts,.importSort,.files)' | \
-        jq '. + {types: "./index.d.ts", main: "./index.js"}'     \
+    cat package.json                | \
+        jq 'del(.devDependencies)'  | \
+        jq 'del(.files)'            | \
+        jq 'del(.importSort)'       | \
+        jq 'del(.jest)'             | \
+        jq 'del(.scripts)'          | \
+        jq '. + {
+            types: "./index.d.ts",
+            main: "./index.js"
+        }'                            \
         > dist/package.json
 }
 
