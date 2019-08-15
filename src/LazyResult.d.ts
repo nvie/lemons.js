@@ -16,6 +16,7 @@ export default class LazyResult<E, T> {
     successCallback: (value: T) => O,
   ): O;
   value(): undefined | T;
+  error(): undefined | E;
 }
 
 export function Initial<E, T>(): LazyResult<E, T>;
