@@ -125,6 +125,10 @@ export default class LazyResult<E, T> {
     value(): T | void {
         return this.dispatch(nothing, nothing, nothing, x => x);
     }
+
+    error(): E | void {
+        return this.dispatch(nothing, nothing, x => x, nothing);
+    }
 }
 
 const _Initial = <E, T>(): LazyResult<E, T> => LazyResult.initial();
