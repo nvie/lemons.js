@@ -1,3 +1,9 @@
+v1.4.1
+------
+* Add `LazyResult.error()` method, similar to `LazyResult.value()`, but for the
+  error value. (Thanks, @Vages!)
+
+
 v1.4.0
 ------
 * **Breaking changes:**
