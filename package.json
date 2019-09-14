@@ -2,6 +2,7 @@
   "name": "lemons",
   "version": "1.4.1",
   "description": "Common algebraïc data types for JavaScript",
+  "githubUrl": "https://github.com/nvie/lemons.js",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
