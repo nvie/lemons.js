@@ -1,6 +1,6 @@
 export default class Result<E, T> {
-  ok(value: T): Result<E, T>;
-  err(error: E): Result<E, T>;
+  static ok<E, T>(value: T): Result<E, T>;
+  static err<E, T>(error: E): Result<E, T>;
 
   toString(): string;
   isOk(): boolean;
