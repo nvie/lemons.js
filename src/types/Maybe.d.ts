@@ -1,6 +1,6 @@
 export default class Maybe<T> {
-    just<T>(value: T): Maybe<T>;
-    nothing<T>(): Maybe<T>;
+    static just<T>(value: T): Maybe<T>;
+    static nothing<T>(): Maybe<T>;
 
     toString(): string;
     isJust(): boolean;

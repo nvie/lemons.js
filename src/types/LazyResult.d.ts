@@ -1,8 +1,8 @@
 export default class LazyResult<E, T> {
-    initial(): LazyResult<E, T>;
-    loading(): LazyResult<E, T>;
-    failure(error: E): LazyResult<E, T>;
-    success(value: T): LazyResult<E, T>;
+    static initial<E, T>(): LazyResult<E, T>;
+    static loading<E, T>(): LazyResult<E, T>;
+    static failure<E, T>(error: E): LazyResult<E, T>;
+    static success<E, T>(value: T): LazyResult<E, T>;
 
     toString(): string;
     isInitial(): boolean;
