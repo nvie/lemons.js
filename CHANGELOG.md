@@ -1,3 +1,12 @@
+v1.4.2
+------
+* Fix static methods type definitions (thanks @VPagani!)
+
+* Improved TypeScript setup
+  - Added TypeScript linter (`dtslint`)
+  - Reorganization of TypeScript declarations
+
+
 v1.4.1
 ------
 * Add `LazyResult.error()` method, similar to `LazyResult.value()`, but for the
