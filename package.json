@@ -25,9 +25,10 @@
         "fix:import-sort": "import-sort --write 'src/**/*.js'",
         "fix:prettier": "prettier --write 'src/**/*.js'",
         "prepublish": "in-publish && yarn run actually-prepublish || not-in-publish",
-        "test": "yarn run clean && yarn run test:flow && yarn run test:jest && yarn run check",
+        "test": "yarn run clean && yarn run test:flow && yarn run test:jest && yarn run test:typescript && yarn run check",
         "test:flow": "flow check",
-        "test:jest": "jest --coverage"
+        "test:jest": "jest --coverage",
+        "test:typescript": "dtslint --onlyTestTsNext src/types"
     },
     "files": [
         "dist/"
@@ -40,6 +41,7 @@
         "@babel/preset-flow": "^7.0.0",
         "babel-eslint": "^10.0.1",
         "coveralls": "^3.0.2",
+        "dtslint": "^0.9.8",
         "eslint": "^6.0.1",
         "eslint-plugin-flowtype": "^4.2.0",
         "flow-bin": "^0.110.0",
@@ -64,5 +66,5 @@
         }
     },
     "sideEffects": false,
-    "types": "./dist/index.d.ts"
+    "types": "./dist/types/index.d.ts"
 }
