@@ -1,3 +1,9 @@
+v1.4.3
+------
+* Fix bug introduced in v1.4.2 for TypeScript users trying to import from
+  submodules, like 'lemons/Result'.
+
+
 v1.4.2
 ------
 * Fix static methods type definitions (thanks @VPagani!)
