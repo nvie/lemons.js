@@ -46,6 +46,15 @@ describe('Maybe', () => {
         expect(() => m3.unwrap()).toThrow('Cannot unwrap a Nothing');
     });
 
+    it('expect', () => {
+        class CustomErr extends Error {}
+        expect(m1.expect('foo')).toBe(42);
+        expect(m2.expect('foo')).toBe('a string');
+        expect(() => m3.expect('foo')).toThrow('foo');
+        expect(() => m3.expect(new CustomErr('foo'))).toThrow('foo');
+        expect(() => m3.expect(new CustomErr('foo'))).toThrow(CustomErr);
+    });
+
     it('withDefault', () => {
         expect(m1.withDefault('foo')).toBe(42);
         expect(m2.withDefault('foo')).toBe('a string');

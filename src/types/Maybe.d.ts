@@ -8,6 +8,7 @@ export default class Maybe<T> {
     withDefault(defaultValue: T): T;
     value(): undefined | T;
     unwrap(): T;
+    expect(error: string | Error): T;
     dispatch<O>(justCallback: (value: T) => O, nothingCallback: () => O): O;
 }
 
