@@ -65,7 +65,7 @@ describe('Result', () => {
     });
 
     it('expect', () => {
-        class CustomErr extends Error { }
+        class CustomErr extends Error {}
         expect(r1.expect('foo')).toBe(42);
         expect(r2.expect('foo')).toBe("I'm a string");
         expect(() => r3.expect('foo')).toThrow('foo');
