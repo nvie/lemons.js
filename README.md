@@ -5,12 +5,42 @@
 
 🍋 Common algebraïc data types for JavaScript, 'cause when life hands you lemons...
 
+## Maybe
+
+Pseudo-type:
+
+    type Maybe<T>
+        = Just T
+        | Nothing
+
+Usage example:
+
+```javascript
+import Maybe, { Just, Nothing } from 'lemons/Maybe';
+// or: import { Maybe, Just, Nothing } from 'lemons';
+
+const r1: Maybe<number> = Just(42);
+r1.isJust()         // => true
+r1.isNothing()      // => false
+r1.withDefault(99)  // => 42
+r1.unwrap()         // => 42
+r1.expect('Foo')    // => 42
+
+const r2: Maybe<number> = Nothing();
+r2.isJust()         // => false
+r2.isNothing()      // => true
+r2.withDefault(99)  // => 99
+r2.unwrap()         // throws Error('Cannot unwrap a Nothing')
+r2.expect('Foo')    // throws Error('Foo')
+```
+
+
 ## Result
 
 Pseudo-type:
 
-    type Result<E, T> =
-        | Ok T
+    type Result<E, T>
+        = Ok T
         | Err E
 
 Usage example:
@@ -37,8 +67,8 @@ r2.unwrap()         // throws 'Oops'
 
 Pseudo-type:
 
-    type LazyResult<E, T> =
-        | Initial
+    type LazyResult<E, T>
+        = Initial
         | Loading
         | Failure E
         | Success T

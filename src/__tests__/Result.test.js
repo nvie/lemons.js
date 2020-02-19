@@ -64,6 +64,15 @@ describe('Result', () => {
         expect(() => r4.unwrap()).toThrow('a reason');
     });
 
+    it('expect', () => {
+        class CustomErr extends Error { }
+        expect(r1.expect('foo')).toBe(42);
+        expect(r2.expect('foo')).toBe("I'm a string");
+        expect(() => r3.expect('foo')).toThrow('foo');
+        expect(() => r3.expect(new CustomErr('foo'))).toThrow('foo');
+        expect(() => r3.expect(new CustomErr('foo'))).toThrow(CustomErr);
+    });
+
     it('withDefault', () => {
         expect(r1.withDefault('foo')).toBe(42);
         expect(r2.withDefault('foo')).toBe("I'm a string");

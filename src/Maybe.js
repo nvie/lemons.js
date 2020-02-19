@@ -83,6 +83,15 @@ export default class Maybe<T> {
         }
     }
 
+    expect(message: string | Error): T {
+        const m = this._m;
+        if (m.type === Just) {
+            return m.value;
+        } else {
+            throw message instanceof Error ? message : new Error(message);
+        }
+    }
+
     dispatch<O>(justCallback: T => O, nothingCallback: () => O): O {
         const m = this._m;
         return m.type === Just ? justCallback(m.value) : nothingCallback();

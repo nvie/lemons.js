@@ -88,6 +88,15 @@ export default class Result<E, T> {
         }
     }
 
+    expect(message: string | Error): T {
+        const r = this._r;
+        if (r.type === Ok) {
+            return r.value;
+        } else {
+            throw message instanceof Error ? message : new Error(message);
+        }
+    }
+
     dispatch<O>(okCallback: T => O, errCallback: E => O): O {
         const r = this._r;
         return r.type === Ok ? okCallback(r.value) : errCallback(r.error);
