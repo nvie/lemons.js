@@ -75,12 +75,7 @@ export default class Maybe<T> {
      * Otherwise, will throw a runtime exception.
      */
     unwrap(): T {
-        const m = this._m;
-        if (m.type === Just) {
-            return m.value;
-        } else {
-            throw new Error('Cannot unwrap a Nothing');
-        }
+        return this.expect('Cannot unwrap a Nothing');
     }
 
     expect(message: string | Error): T {
