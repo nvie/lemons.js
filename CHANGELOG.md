@@ -1,3 +1,9 @@
+v1.5.0
+------
+* Add new `Maybe.expect()` and `Result.expect()` methods.
+  (Thanks @LetTheComputerDecide!)
+
+
 v1.4.3
 ------
 * Fix bug introduced in v1.4.2 for TypeScript users trying to import from
