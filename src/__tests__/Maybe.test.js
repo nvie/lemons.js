@@ -28,7 +28,7 @@ describe('Maybe', () => {
     });
 
     it('dispatching', () => {
-        const [v1, v2, v3] = [m1, m2, m3].map(m =>
+        const [v1, v2, v3] = [m1, m2, m3].map((m) =>
             // prettier-ignore
             m.dispatch(
                 value => "I'm just " + value.toString(),

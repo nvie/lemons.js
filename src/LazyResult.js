@@ -107,8 +107,8 @@ export default class LazyResult<E, T> {
     dispatch<O>(
         initialCallback: () => O,
         loadingCallback: () => O,
-        failureCallback: E => O,
-        successCallback: T => O
+        failureCallback: (E) => O,
+        successCallback: (T) => O
     ): O {
         const r = this._r;
         if (r.type === Initial) {
@@ -123,11 +123,11 @@ export default class LazyResult<E, T> {
     }
 
     value(): T | void {
-        return this.dispatch(nothing, nothing, nothing, x => x);
+        return this.dispatch(nothing, nothing, nothing, (x) => x);
     }
 
     error(): E | void {
-        return this.dispatch(nothing, nothing, x => x, nothing);
+        return this.dispatch(nothing, nothing, (x) => x, nothing);
     }
 }
 
