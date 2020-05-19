@@ -45,7 +45,7 @@ describe('LazyResult', () => {
     });
 
     it('dispatching', () => {
-        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(m =>
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) =>
             // prettier-ignore
             m.dispatch(
                 () => '',
@@ -61,7 +61,7 @@ describe('LazyResult', () => {
     });
 
     it('value', () => {
-        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(m => m.value());
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) => m.value());
         expect(v1).toBe(undefined);
         expect(v2).toBe(undefined);
         expect(v3).toBe(undefined);
@@ -69,7 +69,7 @@ describe('LazyResult', () => {
     });
 
     it('error', () => {
-        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(m => m.error());
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) => m.error());
         expect(v1).toBe(undefined);
         expect(v2).toBe(undefined);
         expect(v3).toBe('oops');

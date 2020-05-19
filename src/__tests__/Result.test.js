@@ -32,7 +32,7 @@ describe('Result', () => {
     });
 
     it('dispatching', () => {
-        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((r) =>
             // prettier-ignore
             r.dispatch(
                 () => "I'm a success",
@@ -46,15 +46,15 @@ describe('Result', () => {
     });
 
     it('map', () => {
-        expect(r1.map(x => x.toString()).value()).toBe('42');
-        expect(r4.map(x => x.length).value()).toBeUndefined();
+        expect(r1.map((x) => x.toString()).value()).toBe('42');
+        expect(r4.map((x) => x.length).value()).toBeUndefined();
     });
 
     it('mapError', () => {
-        expect(r1.mapError(_ => 'whoopsy').unwrap()).toBe(42);
-        expect(r2.mapError(_ => 'whoopsy').unwrap()).toBe("I'm a string");
-        expect(() => r3.mapError(_ => 'whoopsy').unwrap()).toThrow('whoopsy');
-        expect(() => r4.mapError(_ => 'whoopsy').unwrap()).toThrow('whoopsy');
+        expect(r1.mapError((_) => 'whoopsy').unwrap()).toBe(42);
+        expect(r2.mapError((_) => 'whoopsy').unwrap()).toBe("I'm a string");
+        expect(() => r3.mapError((_) => 'whoopsy').unwrap()).toThrow('whoopsy');
+        expect(() => r4.mapError((_) => 'whoopsy').unwrap()).toThrow('whoopsy');
     });
 
     it('unwrapping', () => {
@@ -95,7 +95,7 @@ describe('Result', () => {
     });
 
     it('andThen', () => {
-        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map(r =>
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((r) =>
             // prettier-ignore
             r.andThen(
                 n => typeof n === 'number' ? Result.ok(n * 2) : Result.err('not a number')

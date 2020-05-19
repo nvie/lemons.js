@@ -97,7 +97,7 @@ export default class Result<E, T> {
         }
     }
 
-    dispatch<O>(okCallback: T => O, errCallback: E => O): O {
+    dispatch<O>(okCallback: (T) => O, errCallback: (E) => O): O {
         const r = this._r;
         return r.type === Ok ? okCallback(r.value) : errCallback(r.error);
     }
@@ -105,7 +105,7 @@ export default class Result<E, T> {
     /**
      * Chain together a sequence of computations that may fail.
      */
-    andThen<V>(callback: T => Result<E, V>): Result<E, V> {
+    andThen<V>(callback: (T) => Result<E, V>): Result<E, V> {
         const r = this._r;
         return r.type === Ok ? callback(r.value) : Result.err(r.error);
     }
@@ -114,7 +114,7 @@ export default class Result<E, T> {
      * Transform an Ok result.  If the result is an Err, the same error value
      * will propagate through.
      */
-    map<T2>(mapper: T => T2): Result<E, T2> {
+    map<T2>(mapper: (T) => T2): Result<E, T2> {
         const r: $ResultT<E, T> = this._r;
         return r.type === Ok ? Result.ok(mapper(r.value)) : Result.err(r.error);
     }
@@ -123,7 +123,7 @@ export default class Result<E, T> {
      * Transform an Err value.  If the result is an Ok, this is a no-op.
      * Useful when for example the errors has too much information.
      */
-    mapError<E2>(mapper: E => E2): Result<E2, T> {
+    mapError<E2>(mapper: (E) => E2): Result<E2, T> {
         const r = this._r;
         return r.type === Ok ? Result.ok(r.value) : Result.err(mapper(r.error));
     }

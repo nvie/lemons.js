@@ -87,7 +87,7 @@ export default class Maybe<T> {
         }
     }
 
-    dispatch<O>(justCallback: T => O, nothingCallback: () => O): O {
+    dispatch<O>(justCallback: (T) => O, nothingCallback: () => O): O {
         const m = this._m;
         return m.type === Just ? justCallback(m.value) : nothingCallback();
     }
