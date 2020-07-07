@@ -1,6 +1,6 @@
 {
     "name": "lemons",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "Common algebraïc data types for JavaScript",
     "license": "MIT",
     "repository": {
@@ -57,6 +57,7 @@
         "prettier-plugin-package": "^1.0.0",
         "rimraf": "^3.0.2"
     },
+    "types": "./dist/types/index.d.ts",
     "githubUrl": "https://github.com/nvie/lemons.js",
     "importSort": {
         ".js": {
@@ -64,6 +65,5 @@
             "style": "module"
         }
     },
-    "sideEffects": false,
-    "types": "./dist/types/index.d.ts"
+    "sideEffects": false
 }
