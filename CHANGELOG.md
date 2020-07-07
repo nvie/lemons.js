@@ -1,3 +1,8 @@
+vNEXT
+-----
+* Add new `LazyResult.mapSuccess()` and `LazyResult.mapFailure()` methods
+
+
 v1.5.0
 ------
 * Add new `Maybe.expect()` and `Result.expect()` methods.

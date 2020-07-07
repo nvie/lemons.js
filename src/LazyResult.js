@@ -122,6 +122,24 @@ export default class LazyResult<E, T> {
         }
     }
 
+    mapSuccess<V>(mapFn: (T) => V): LazyResult<E, V> {
+        return this.dispatch(
+            () => LazyResult.initial(),
+            () => LazyResult.loading(),
+            (error: E) => LazyResult.failure(error),
+            (value: T) => LazyResult.success(mapFn(value))
+        );
+    }
+
+    mapFailure<F>(mapFn: (E) => F): LazyResult<F, T> {
+        return this.dispatch(
+            () => LazyResult.initial(),
+            () => LazyResult.loading(),
+            (error: E) => LazyResult.failure(mapFn(error)),
+            (value: T) => LazyResult.success(value)
+        );
+    }
+
     value(): T | void {
         return this.dispatch(nothing, nothing, nothing, (x) => x);
     }
