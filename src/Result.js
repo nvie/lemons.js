@@ -47,7 +47,7 @@ export default class Result<E, T> {
         return new Result({ type: Err, error });
     }
 
-    toString() {
+    toString(): string {
         const r = this._r;
         return r.type === Ok ? `Ok(${String(r.value)})` : `Err(${String(r.error)})`;
     }

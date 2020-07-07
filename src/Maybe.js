@@ -47,7 +47,7 @@ export default class Maybe<T> {
         return new Maybe({ type: Nothing });
     }
 
-    toString() {
+    toString(): string {
         const m = this._m;
         return m.type === Just ? `Just(${String(m.value)})` : 'Nothing';
     }

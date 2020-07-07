@@ -75,7 +75,7 @@ export default class LazyResult<E, T> {
         return new LazyResult({ type: Success, result });
     }
 
-    toString() {
+    toString(): string {
         const r = this._r;
         if (r.type === Initial) {
             return 'Initial';
