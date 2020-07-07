@@ -60,6 +60,22 @@ describe('LazyResult', () => {
         expect(v4).toBe('Data: awesome');
     });
 
+    it('mapSuccess', () => {
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) => m.mapSuccess((data) => `Data: ${data}`));
+        expect(v1).toEqual(r1);
+        expect(v2).toEqual(r2);
+        expect(v3).toEqual(r3);
+        expect(v4).toEqual(Success('Data: awesome'));
+    });
+
+    it('mapFailure', () => {
+        const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) => m.mapFailure(() => 42));
+        expect(v1).toEqual(r1);
+        expect(v2).toEqual(r2);
+        expect(v3).toEqual(Failure(42));
+        expect(v4).toEqual(r4);
+    });
+
     it('value', () => {
         const [v1, v2, v3, v4] = [r1, r2, r3, r4].map((m) => m.value());
         expect(v1).toBe(undefined);
