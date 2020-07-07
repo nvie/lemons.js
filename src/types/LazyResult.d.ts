@@ -15,6 +15,8 @@ export default class LazyResult<E, T> {
         failureCallback: (error: E) => O,
         successCallback: (value: T) => O
     ): O;
+    mapSuccess<V>(mapFn: (value: T) => V): LazyResult<E, V>;
+    mapFailure<F>(mapFn: (error: E) => F): LazyResult<F, T>;
     value(): undefined | T;
     error(): undefined | E;
 }
