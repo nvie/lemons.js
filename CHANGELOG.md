@@ -1,3 +1,7 @@
+## v1.7.0
+
+- Drop support for Node 13.x (unstable)
+
 ## v1.6.0
 
 -   Add new `LazyResult.mapSuccess()` and `LazyResult.mapFailure()` methods
