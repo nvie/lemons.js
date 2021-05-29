@@ -1,12 +1,12 @@
 // flow-typed signature: 6e1fc0a644aa956f79029fec0709e597
 // flow-typed version: 07ebad4796/jest_v22.x.x/flow_>=v0.39.x
 
-type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
+type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {|
   (...args: TArguments): TReturn,
   /**
    * An object for introspecting mock calls
    */
-  mock: {
+  mock: {|
     /**
      * An array that represents all calls that have been made into this mock
      * function. Each call is represented by an array of arguments that were
@@ -18,7 +18,7 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
      * instantiated from this mock function.
      */
     instances: Array<TReturn>
-  },
+  |},
   /**
    * Resets all information stored in the mockFn.mock.calls and
    * mockFn.mock.instances arrays. Often this is useful when you want to clean
@@ -67,16 +67,16 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
    * Sugar for only returning a value once inside your mock
    */
   mockReturnValueOnce(value: TReturn): JestMockFn<TArguments, TReturn>
-};
+|};
 
-type JestAsymmetricEqualityType = {
+type JestAsymmetricEqualityType = {|
   /**
    * A custom Jasmine equality tester
    */
   asymmetricMatch(value: mixed): boolean
-};
+|};
 
-type JestCallsType = {
+type JestCallsType = {|
   allArgs(): mixed,
   all(): mixed,
   any(): boolean,
@@ -84,23 +84,23 @@ type JestCallsType = {
   first(): mixed,
   mostRecent(): mixed,
   reset(): void
-};
+|};
 
-type JestClockType = {
+type JestClockType = {|
   install(): void,
   mockDate(date: Date): void,
   tick(milliseconds?: number): void,
   uninstall(): void
-};
+|};
 
-type JestMatcherResult = {
+type JestMatcherResult = {|
   message?: string | (() => string),
   pass: boolean
-};
+|};
 
 type JestMatcher = (actual: any, expected: any) => JestMatcherResult;
 
-type JestPromiseType = {
+type JestPromiseType = {|
   /**
    * Use rejects to unwrap the reason of a rejected promise so any other
    * matcher can be chained. If the promise is fulfilled the assertion fails.
@@ -111,12 +111,12 @@ type JestPromiseType = {
    * matcher can be chained. If the promise is rejected the assertion fails.
    */
   resolves: JestExpectType
-};
+|};
 
 /**
  *  Plugin: jest-enzyme
  */
-type EnzymeMatchersType = {
+type EnzymeMatchersType = {|
   toBeChecked(): void,
   toBeDisabled(): void,
   toBeEmpty(): void,
@@ -134,9 +134,9 @@ type EnzymeMatchersType = {
   toHaveValue(value: any): void,
   toMatchElement(element: React$Element<any>): void,
   toMatchSelector(selector: string): void
-};
+|};
 
-type JestExpectType = {
+type JestExpectType = {|
   not: JestExpectType & EnzymeMatchersType,
   /**
    * If you have a mock function, you can use .lastCalledWith to test what
@@ -278,9 +278,9 @@ type JestExpectType = {
    * matching the most recent snapshot when it is called.
    */
   toThrowErrorMatchingSnapshot(): void
-};
+|};
 
-type JestObjectType = {
+type JestObjectType = {|
   /**
    *  Disables automatic mocking in the module loader.
    *
@@ -430,11 +430,11 @@ type JestObjectType = {
    * Note: The default timeout interval is 5 seconds if this method is not called.
    */
   setTimeout(timeout: number): JestObjectType
-};
+|};
 
-type JestSpyType = {
+type JestSpyType = {|
   calls: JestCallsType
-};
+|};
 
 /** Runs this function after every test inside this context */
 declare function afterEach(
@@ -458,7 +458,7 @@ declare function beforeAll(
 ): void;
 
 /** A context for grouping tests together */
-declare var describe: {
+declare var describe: {|
   /**
    * Creates a block that groups together several related tests in one "test suite"
    */
@@ -473,10 +473,10 @@ declare var describe: {
    * Skip running this describe block
    */
   skip(name: string, fn: () => void): void
-};
+|};
 
 /** An individual test unit */
-declare var it: {
+declare var it: {|
   /**
    * An individual test unit
    *
@@ -525,7 +525,7 @@ declare var it: {
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
   ): void
-};
+|};
 declare function fit(
   name: string,
   fn: (done: () => void) => ?Promise<mixed>,
@@ -543,7 +543,7 @@ declare var xit: typeof it;
 declare var xtest: typeof it;
 
 /** The expect function is used every time you want to test a value */
-declare var expect: {
+declare var expect: {|
   /** The object that you want to make assertions against */
   (value: any): JestExpectType & JestPromiseType & EnzymeMatchersType,
   /** Add additional Jasmine matchers to Jest's roster */
@@ -559,7 +559,7 @@ declare var expect: {
   /** Matches any received string that contains the exact expected string. */
   stringContaining(value: string): void,
   stringMatching(value: string | RegExp): void
-};
+|};
 
 // TODO handle return type
 // http://jasmine.github.io/2.4/introduction.html#section-Spies
@@ -572,7 +572,7 @@ declare var jest: JestObjectType;
  * The global Jasmine object, this is generally not exposed as the public API,
  * using features inside here could break in later versions of Jest.
  */
-declare var jasmine: {
+declare var jasmine: {|
   DEFAULT_TIMEOUT_INTERVAL: number,
   any(value: mixed): JestAsymmetricEqualityType,
   anything(): void,
@@ -585,4 +585,4 @@ declare var jasmine: {
   ): { [methodName: string]: JestSpyType },
   objectContaining(value: Object): void,
   stringMatching(value: string): void
-};
+|};

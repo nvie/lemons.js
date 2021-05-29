@@ -15,10 +15,10 @@ const Success = 'Success';
 
 // prettier-ignore
 opaque type $LazyResultT<E, T> =
-    | { type: typeof Initial }
-    | { type: typeof Loading }
-    | { type: typeof Failure, error: E }
-    | { type: typeof Success, result: T };
+    | {| type: typeof Initial |}
+    | {| type: typeof Loading |}
+    | {| type: typeof Failure, error: E |}
+    | {| type: typeof Success, result: T |}
 
 const nothing = () => undefined;
 

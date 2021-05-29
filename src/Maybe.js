@@ -11,8 +11,8 @@ const Nothing = 'Nothing';
 
 // prettier-ignore
 opaque type $MaybeT<T> =
-    | { type: typeof Just, value: T }
-    | { type: typeof Nothing };
+    | {| type: typeof Just, value: T |}
+    | {| type: typeof Nothing |};
 
 /**
  * Represents a union type that's either a legit value or an error:

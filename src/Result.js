@@ -11,8 +11,8 @@ const Err = 'Err';
 
 // prettier-ignore
 opaque type $ResultT<E, T> =
-    | { type: typeof Ok, value: T }
-    | { type: typeof Err, error: E };
+    | {| type: typeof Ok, value: T |}
+    | {| type: typeof Err, error: E |}
 
 /**
  * Represents a union type that's either a legit value or an error:
