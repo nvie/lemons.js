@@ -1,9 +1,7 @@
-## vNEXT
+## v1.7.0-beta1
 
+-   Include ES modules in published NPM builds
 -   Officially support Node 16.x
-
-## v1.7.0
-
 -   Drop support for Node 13.x (unstable)
 
 ## v1.6.0
