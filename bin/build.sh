@@ -23,7 +23,9 @@ build_code() {
 
     # Build ES module output
     mkdir -p "$DIST_ES"
-    rollup --format es --plugin @rollup/plugin-babel src/index.js > "$DIST_ES/index.js"
+    rollup \
+        --failAfterWarnings \
+        --config
 }
 
 copy_typescript_defs() {
