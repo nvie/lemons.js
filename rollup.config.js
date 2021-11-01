@@ -1,18 +1,20 @@
-import { babel } from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 
 const plugins = [
+    resolve(),
     babel({
-        babelHelpers: 'bundled',
+        babelHelpers: 'runtime',
+        plugins: ['@babel/plugin-transform-runtime'],
     }),
 ];
 
-const files = ['index.js', 'Result.js', 'Maybe.js'];
-
-export default files.map((srcFile) => ({
-    input: 'src/' + srcFile,
+export default {
+    external: [/@babel\/runtime/],
+    input: 'src/index.js',
     plugins,
     output: {
         format: 'es',
-        file: 'dist/es/' + srcFile,
+        file: 'dist/es/index.js',
     },
-}));
+};
