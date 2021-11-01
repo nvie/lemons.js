@@ -1,6 +1,6 @@
 {
     "name": "lemons",
-    "version": "1.6.0",
+    "version": "1.7.0-beta1",
     "description": "Common algebraïc data types for JavaScript",
     "license": "MIT",
     "repository": {
