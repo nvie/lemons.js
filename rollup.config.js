@@ -1,8 +1,6 @@
-import resolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 
 const plugins = [
-    resolve(),
     babel({
         babelHelpers: 'runtime',
         plugins: ['@babel/plugin-transform-runtime'],
