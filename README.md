@@ -1,7 +1,10 @@
-[![npm](https://img.shields.io/npm/v/lemons.svg)](https://www.npmjs.com/package/lemons)
-[![Build Status](https://github.com/nvie/lemons.js/workflows/test/badge.svg)](https://github.com/nvie/lemons.js/actions)
-[![Coverage Status](https://img.shields.io/coveralls/nvie/lemons.js/master.svg)](https://coveralls.io/github/nvie/lemons.js?branch=master)
-[![Minified Size](https://badgen.net/bundlephobia/minzip/lemons)](https://bundlephobia.com/result?p=lemons)
+---
+
+## This library is no longer maintained!
+
+If you're reading this, you likely use lemons.js in combination with [`decoders`](https://decoders.cc/). In `decoders` >= 2.0, `lemons` is no longer a dependency, and there is no furhter wide-spread use of it. I've archived the repo to make clear it's no longer maintained.
+
+---
 
 🍋 Common algebraïc data types for JavaScript, 'cause when life hands you lemons...
 
